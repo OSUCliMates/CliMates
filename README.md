@@ -1,3 +1,5 @@
 # CliMates
 
-Emily says hi!
+Emily says hi!!
+
+(testing if slack notifications work)
