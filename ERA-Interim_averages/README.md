@@ -6,3 +6,5 @@ The "temp-crawler.R" file is the code that I used to calculate the average tempe
 In the .csv file I left the data values with their default units, which means the temperatures are in kelvin, and the times are integers. I know Ericka had figured out how to translate the units, I may work on that next. 
 
 This is all really preliminary, but I wanted to make what I've got done available to you all so if you wanted to work with it you could. If we want to work with this index, the next step on working with it could be to fit a trend to it, which would need to have a seasonal component to it. 
+
+-Kate
