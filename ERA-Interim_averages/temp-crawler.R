@@ -28,7 +28,7 @@ for(t in time.dex$time){
 
 #construct data frame to be written as .csv
 time_parts <- RNetCDF::utcal.nc(time.units$value, time.dex$time)%>%
-  select(c())
+  select(c(1,2,3))
 outframe <- data.frame(year=time_parts[,1], 
                        month=time_parts[,2],
                        day=time_parts[,3],
