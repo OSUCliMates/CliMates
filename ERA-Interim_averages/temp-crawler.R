@@ -9,9 +9,9 @@ time.dex <- maxtemp %>% activate("D0") %>% hyper_array()
 lat.dex <- maxtemp %>% activate("D1") %>% hyper_array()
 lon.dex <- maxtemp %>% activate("D0") %>% hyper_array()
 
-#############################################################################
-#nested for loop creates a time series of average max temp ACROSS ALL PIXELS#
-#############################################################################
+###################################################################
+# loop creates a time series of average max temp ACROSS ALL PIXELS#
+###################################################################
 
 #initialize an empty vector of average temps
 averages <- numeric()
