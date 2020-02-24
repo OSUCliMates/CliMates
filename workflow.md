@@ -12,8 +12,15 @@ Fork the [`OSUCliMates/CliMates`](https://github.com/OSUCliMates/CliMates/issues
 
 Shortcut to fork, clone and set upstream, in R:
 ```r
-usethis::create_from_github("OSUCliMates/CliMates", fork = TRUE)
+usethis::create_from_github("OSUCliMates/CliMates", fork = TRUE, protocol = "https")
 ```
+Do we 
+
+```r
+usethis::create_from_github("cwickham/CliMates", protocol = "https")
+```
+
+
 
 ## Doing your own work
 
