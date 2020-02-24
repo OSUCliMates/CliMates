@@ -4,4 +4,7 @@ A currently unoganized github landing page for our OSU CliMates group.
 
 ![Needs more cat pics](jen-and-nimbus-lovetea.jpeg)
 
-I am learning to draw animals good because I can't draw animals good.
+![Needs even more cat pics](scylla_with_bones.JPG)
+
+![Another maybe](porter.jpg)
+
