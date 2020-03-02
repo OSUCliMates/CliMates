@@ -23,5 +23,21 @@ get_state <- function(state="oregon", timemax=1){
 }
 
 
-test <- get_state(state = "florida")
+test <- get_state(state = "oregon")
+state_geom <- st_as_sf(map("county", region = "oregon",
+                           plot = F, fill = T,boundary = T,myboarder = 1))
+
+library(stars)
 plot(test)
+plot(test["MAXT"])
+
+test 
+state_df <- as.data.frame(state_geom)
+all <- left_join(test,state_df)
+
+
+ggplot() +
+    geom_sf(data =state_geom, aes(geometry = geom)) 
+    
+ggplot() +
+    geom_sf(data = test, aes(fill = MAXT, geometry = )) 
