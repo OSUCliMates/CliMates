@@ -1,0 +1,105 @@
+---
+title: "Untitled"
+author: "Katherine Pulham"
+date: "2/24/2020"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(ggfortify)
+library(gridExtra)
+```
+
+I want to model the model wide average maximum temperature as a time series. I've used hyper_tibble() to create a csv for it:
+
+```{r}
+maxtfile <- "ERA-Interim_averages/average-Max-Temperature.csv"
+maxt <- read_csv(maxtfile)
+```
+
+I clean this up really quickly
+
+```{r}
+dvec <- character(length=length(maxt$avg.max.temp))
+for (i in 1:length(maxt$avg.max.temp)){
+  dvec[i] <- paste(maxt$year[i],maxt$month[i],maxt$day[i],sep="-")
+}
+maxt <- maxt %>%
+  mutate(date=lubridate::ymd(dvec),maxtemp=avg.max.temp)
+maxt <- select(.data=maxt,date,maxtemp)
+head(maxt)
+remove(dvec)
+```
+
+Let's start by plotting this.
+
+```{r}
+ggplot(data=maxt, aes(x=date,y=maxtemp))+
+  geom_line()+
+  ylim(c(250,330))+
+  ggtitle("Daily Maximum Temperature")+
+  ylab("Maximum Temperature (degrees Kelvin)")+
+  xlab("Date")
+```
+
+This appears to be a sine wave, maybe with a slight trend to it. Since the oscillations have to have a year long period, I'll be fitting the model:
+
+$$
+Y=\beta_0+\beta_1X+\alpha \cdot sin\left(\frac{2\pi X}{365.25}+\omega\right)
+$$
+
+This is not linear in terms of the parameters $\underset{\sim}{\beta}$, we must use a non linear least squares estimation scheme.
+
+```{r}
+#creating a time variable for days since 1979-1-1 and the temp
+t <- 1:length(maxt$date)
+temp <- maxt$maxtemp
+
+#fitting the nls model
+fit <- nls(temp ~ beta0 + beta1*t + alpha*sin((2*pi/365.25)*t + omega),
+             start = list(beta0=290, alpha=10, omega=4.9, beta1=.000000000001))
+summary(fit)
+```
+
+We see a very small, but positive slope term for the trend on the data. Let's plot this fitted curve:
+
+```{r}
+#set parameters
+parameters <- summary(fit)$coef[,1]
+b0    <- parameters[1]
+b1    <- parameters[4]
+alpha <- parameters[2]
+omega <- parameters[3]
+
+#define prediction function
+pred <- function(t){
+  return(b0 + b1*t + alpha*sin((2*pi*t/365.25)+omega))
+}
+
+
+#produce predicted values and add to maxt
+yhat <- pred(t)
+
+#plot the data and the model
+ggplot(data=NULL, aes(x=t,y=yhat))+geom_line(col="green")+
+  geom_line(data=NULL, aes(x=t,y=temp))+
+  xlim(1,1000)
+```
+
+Now we can extract the residuals from this model and examine them as a time series, plotting the series, the acf, and the pacf:
+
+```{r}
+rdf <- tibble(
+  t = (1:length(resid(fit))),
+  residuals = resid(fit)
+)
+p0 <- ggplot(data=rdf)+geom_line(aes(x=t,y=residuals))
+p1 <- autoplot(acf(rdf$residuals,plot=F))
+p2 <- autoplot(pacf(rdf$residuals,plot=F))
+grid.arrange(p0,p1,p2, nrow = 3) 
+```
+
