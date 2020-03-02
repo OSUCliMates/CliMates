@@ -17,27 +17,13 @@ get_state <- function(state="oregon", timemax=1){
         mutate(lon2 = ifelse(lon>180,lon-360,lon))
     
     state_polygon <- st_as_sf(state1)
-    points <- st_as_sf(maxt, coords = c("lon2", "lat"), crs = st_crs(US))
+    points <- st_as_sf(maxt, coords = c("lon2", "lat"), crs = st_crs(state_polygon))
     joins <- st_join(points, state_polygon) %>% filter(!is.na(ID))
     return(joins)
 }
 
-
 test <- get_state(state = "oregon")
-state_geom <- st_as_sf(map("county", region = "oregon",
-                           plot = F, fill = T,boundary = T,myboarder = 1))
 
-library(stars)
 plot(test)
 plot(test["MAXT"])
 
-test 
-state_df <- as.data.frame(state_geom)
-all <- left_join(test,state_df)
-
-
-ggplot() +
-    geom_sf(data =state_geom, aes(geometry = geom)) 
-    
-ggplot() +
-    geom_sf(data = test, aes(fill = MAXT, geometry = )) 
