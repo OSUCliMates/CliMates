@@ -1,6 +1,10 @@
 A currently unoganized github landing page for our OSU CliMates group. 
 
+[Notes on Git workflow](workflow.md)
+
+
 ![needsCatPic](catpics/catpic.jpg)
+
 
 ![Needs more cat pics](catpics/jen-and-nimbus-lovetea.jpeg)
 
