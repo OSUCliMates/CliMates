@@ -18,3 +18,6 @@ Kate's Changes in the readme
 
 
 ![all the cats](catpics/chestnut.jpeg)
+
+
+![anotha one](catpics/bailey.JPG)
