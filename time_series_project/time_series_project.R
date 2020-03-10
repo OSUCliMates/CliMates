@@ -1,7 +1,14 @@
+test <- get_state(state = "oregon")
+
+plot(test)
+plot(test["MAXT"])
+
+
 library(tidync)
 library(sf)
 library(tidyverse)
 library(maps)
+library(gridExtra)
 
 create_windows <- function(yrs){
     if(yrs== 4){
@@ -21,6 +28,7 @@ create_moving_window <- function(years,lag){
 }
 
 get_state <- function(state="oregon", timemin=0, timemax=1){
+    print(state)
     state1 <- map("county", region = state, plot = F, fill = T)
     maxlon <- max(state1$x, na.rm = T)
     minlon <- min(state1$x, na.rm = T)
@@ -41,12 +49,20 @@ get_state <- function(state="oregon", timemin=0, timemax=1){
     return(joins)
 }
 
-averaging <- function(df){
-    adf <- df %>% 
-        group_by(time) %>% 
-        summarize(avg = mean(MAXT)) %>% 
-        as.data.frame() %>%
-        select(time, avg)
+averaging <- function(df, type = "mean"){
+    if(type == "mean"){
+        adf <- df %>% 
+            group_by(time) %>% 
+            summarize(avg = mean(MAXT)) %>% 
+            as.data.frame() %>%
+            select(time, avg)
+    }else{
+        adf <- df %>% 
+            group_by(time) %>% 
+            summarize(avg = median(MAXT)) %>% 
+            as.data.frame() %>%
+            select(time, avg)
+    }
     return(adf)
 }
 
@@ -92,18 +108,58 @@ get.amplitudes <- function(inlist){
 }
 
 
-amplitudes_by_state <- function(window_year = 4, state="oregon"){
+amplitudes_by_state <- function(window_year = 4, state="oregon", type = "mean"){
     windows <- create_windows(window_year)
     dfs <- purrr::pmap(windows,~get_state(state = state,timemin=.x,timemax=.y))
-    adfs <- purrr::map(dfs,averaging)
+    adfs <- purrr::map(dfs,~averaging(df = .x, type = type))
     amps <- get.amplitudes(adfs)
     return(amps)
 }
 
-state.name
-oregon_amplitudes <- amplitudes_by_state(window_year = 1)
-Alabama_amplitudes <- amplitudes_by_state(state = "Alabama")
+usstates <- state.name[-c(2,11)]
+oregon_amplitudes_mean <- amplitudes_by_state(window_year = 1)
+oregon_amplitudes_median <- amplitudes_by_state(window_year = 1, type = "median")
 
-data.frame(t = 1:39,oregon_amplitudes) %>% 
-    ggplot(aes(x = t, y = oregon_amplitudes)) + geom_line()
+ny_amplitudes <- amplitudes_by_state(state = "New York", window_year = 1)
 
+all_states_mean <- purrr::map(usstates,~amplitudes_by_state(state = .))
+
+
+data.frame(t = 1:39,oregon_amplitudes_mean,oregon_amplitudes_median) %>% 
+    ggplot() +
+    geom_line(aes(x = t, y = oregon_amplitudes_mean), color = "blue") +
+    geom_line(aes(x = t, y = oregon_amplitudes_median), color = "red")
+
+data.frame(t = 1:39,oregon_amplitudes_mean,oregon_amplitudes_median) %>% 
+    ggplot(aes(x = t, y = oregon_amplitudes_mean)) +
+    geom_line() + geom_smooth(method = "lm", se = F)
+data.frame(t = 1:39,ny_amplitudes) %>% 
+    ggplot(aes(x = t, y = ny_amplitudes)) +
+    geom_line() + geom_smooth(method = "lm", se = F)
+
+oregon_a_dfs <- data.frame(t = 1:39,oregon_amplitudes_mean,oregon_amplitudes_median)
+mod1 <- lm(oregon_amplitudes_mean ~t, data = oregon_a_dfs)
+summary(mod1)
+
+plot_windows <- function(window_year = 4, state="oregon", type = "mean"){
+    windows <- create_windows(window_year)
+    dfs <- purrr::pmap(windows,~get_state(state = state,timemin=.x,timemax=.y))
+    adfs <- purrr::map(dfs,~averaging(df = .x, type = type))
+    p <- purrr::map(adfs, ~ggplot(., aes(x = time, y = avg)) + geom_line())
+    return(p)
+}
+
+
+raw_datas_plots <- plot_windows(window_year = 1)
+grid.arrange(grobs=raw_datas_plots) + ggtitle("Windows for Oregon, window 1")
+
+
+raw_datas_plots4 <- plot_windows(window_year = 4)
+grid.arrange(grobs=raw_datas_plots4) + ggtitle("Windows for Oregon, window 4")
+
+
+raw_datas_plots4_ny <- plot_windows(window_year = 4, state = "new york")
+grid.arrange(grobs=raw_datas_plots4_ny) 
+
+raw_datas_plots1_ny <- plot_windows(window_year = 1, state = "new york")
+grid.arrange(grobs=raw_datas_plots1_ny) + ggtitle("Windows for New york, window 1")
