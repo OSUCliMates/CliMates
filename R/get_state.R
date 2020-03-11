@@ -1,5 +1,7 @@
-library(sf) 
-library(tidyverse)
+require(sf) 
+require(tidyverse)
+require(maps)
+require(tidync)
 
 #' Get the state data points 
 #'
@@ -11,13 +13,13 @@ library(tidyverse)
 
 get_state <- function(state="oregon", timemin=0, timemax=1){
     print(state)
-    state1 <- map("county", region = state, plot = F, fill = T)
+    state1 <- maps::map("county", region = state, plot = F, fill = T)
     maxlon <- max(state1$x, na.rm = T)
     minlon <- min(state1$x, na.rm = T)
     maxlat <- max(state1$y, na.rm = T)
     minlat <- min(state1$y, na.rm = T)
-    filename <- "../st505/ERA-Interim/historical/MAXT.nc"
-    #filename <- "MAXT.nc"
+    #filename <- "../st505/ERA-Interim/historical/MAXT.nc"
+    filename <- "/Users/emilypalmer/Desktop/MAXT.nc"
     maxt <- tidync(filename) %>% 
         hyper_filter(time = time <= timemax & time >= timemin,
                      lat = dplyr::between(lat, abs(minlat),abs(maxlat)),
