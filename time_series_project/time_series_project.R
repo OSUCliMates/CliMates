@@ -19,9 +19,6 @@ plot(test["MAXT"])
 ## Time series project working on getting the individual states
 usstates <- state.name[-c(2,11)] # get rid of hawaii and alaska 
 
-oregon_amplitudes_mean <- amplitudes_by_state(window_year = 1)
-oregon_amplitudes_median <- amplitudes_by_state(window_year = 1, type = "median")
-
 
 ny_amplitudes <- amplitudes_by_state(state = "New York", window_year = 1)
 or_amplitudes <- amplitudes_by_state(state = "oregon", window_year = 1)
@@ -35,13 +32,27 @@ four_states_amplitudes <- data.frame(ny_amplitudes,
 
 write.csv(four_states_amplitudes, 'Output/NyOrNeFl_amplitudes.csv')
 
+### Output states
+averaged_florida <- get_averaged_state("florida")
+write.csv(averaged_florida, 'Output/averaged_florida.csv')
+
+averaged_oregon <- get_averaged_state("oregon")
+write.csv(averaged_oregon, 'Output/averaged_oregon.csv')
+
+averaged_nebraska <- get_averaged_state("nebraska")
+write.csv(averaged_nebraska, 'Output/averaged_nebraska.csv')
+
+averaged_new_york <- get_averaged_state("new york")
+write.csv(averaged_new_york, 'Output/averaged_new_york.csv')
 
 
 
-
-
-
+## Working on getting a loop 
 all_states_mean <- purrr::map(usstates,~amplitudes_by_state(state = .))
+
+oregon_amplitudes_mean <- amplitudes_by_state(window_year = 1)
+oregon_amplitudes_median <- amplitudes_by_state(window_year = 1, type = "median")
+
 
 jpeg("orAmplitudes.jpg", width = 350, height = "350")
 data.frame(t = 1:39,oregon_amplitudes_mean,oregon_amplitudes_median) %>% 

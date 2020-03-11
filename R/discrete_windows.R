@@ -10,3 +10,12 @@ create_windows <- function(yrs){
     }
     return(list)
 }
+
+
+# for one year windows for now... 
+get_windows_from_df <- function(df){
+    timemin <- 0
+    timemax <- 1
+    windowed_df <- df %>% 
+        filter(time <= timemin)
+}
