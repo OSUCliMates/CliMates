@@ -35,5 +35,5 @@ get.alpha <- function(frame){
 #function that applies amplitude finder to a list of data frames 
 #where column one is a time index and column 2 is the maxtemp
 get.amplitudes <- function(inlist){
-    return(map(inlist,get.alpha))
+    return(purrr::map_dbl(inlist,get.alpha))
 }
