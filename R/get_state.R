@@ -11,7 +11,7 @@ require(tidync)
 #' @return A data frame of the state data points within the time 
 
 
-get_state <- function(state="oregon", timemin=0, timemax=1){
+get_state <- function(state="oregon", timemin=0, timemax=14244){
     print(state)
     state1 <- maps::map("county", region = state, plot = F, fill = T)
     maxlon <- max(state1$x, na.rm = T)
