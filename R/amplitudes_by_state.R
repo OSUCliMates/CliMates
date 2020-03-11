@@ -9,3 +9,10 @@ amplitudes_by_state <- function(window_year = 4, state="oregon", type = "mean"){
     amps <- get.amplitudes(adfs)
     return(amps)
 }
+
+
+get_averaged_state <- function(state="oregon", type = "mean"){
+    df <- get_state(state = state)
+    adf <- averaging(df)
+    return(adf)
+}
