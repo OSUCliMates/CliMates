@@ -5,12 +5,11 @@ library(ncdf4)
 
 # Load in our functions 
 devtools::load_all(path = here::here("CliMates"))
-
+devtools::document()
 # get file metadata 
 cesmlens <- get_data(data = "CESM",specific="rcp",type="PREC")
 cesmlens_data <- nc_open(cesmlens)
 try(print(prec))
-
 
 # Get CESM RCP Oregon data 
 cesm_rcp <- cesmlens %>%
