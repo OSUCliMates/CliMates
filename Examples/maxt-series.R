@@ -11,7 +11,7 @@ library(readr)
 maxtfile <- "ERA-Interim_averages/average-Max-Temperature.csv"
 maxt <- read_csv(maxtfile)
 
-#clean this up really quickly
+clean this up really quickly
 
 dvec <- numeric(length=length(maxt$avg.max.temp))
 for (i in 1:length(maxt$avg.max.temp)){
