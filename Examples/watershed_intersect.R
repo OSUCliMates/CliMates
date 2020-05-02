@@ -4,21 +4,20 @@ library(here)
 library(ncdf4)
 
 # Load in our functions 
-devtools::load_all(path = here::here("CliMates"))
-
+devtools::load_all()
+devtools::document()
 # get file metadata 
-cesmlens <- get_data(data = "CESM",specific="rcp",type="PREC")
+cesmlens <- get_filename(data = "CESM",specific="rcp",type="PREC")
 cesmlens_data <- nc_open(cesmlens)
 try(print(prec))
 
-
 # Get CESM RCP Oregon data 
 cesm_rcp <- cesmlens %>%
-    get_state(stat = "oregon",timemax = 3)
+    get_state_data(stat = "oregon",timemax = 3)
 
 # Get ERA Precip data 
-era <- get_data(data = "ERA",type ="PREC")%>%
-    get_state(stat = "oregon",timemax = 3)
+era <- get_filename(data = "ERA",type ="PREC")%>%
+    get_state_data(stat = "oregon",timemax = 3)
 
 
 # load in shapefile of Oregon Watersheds

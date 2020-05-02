@@ -1,4 +1,4 @@
-source("R/get_state.R")
+source("R/get_state_data.R")
 source("R/nlsfitting.R")
 source("R/averaging.R")
 source("R/discrete_windows.R")
