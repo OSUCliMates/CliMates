@@ -7,7 +7,6 @@ library(gridExtra)
 
 #filename
 precfile <- "/home/ST505/CESM-LENS/historical/PREC.nc"
-tidync(precfile)
 
 #Define boundaries of willamette river valley (i just eyeballed these)
 willamette <- list(
@@ -45,7 +44,7 @@ avgprec <- tibble(
     year=unique(prec$year)
 )
 
-#add average temp to tibble
+#add average YEARLY prec to tibble
 avgprec <- avgprec %>%
     mutate(meanprec=map_dbl(avgprec$year,function(x) mean(filter(prec,year==x)$PREC)))
 
@@ -91,3 +90,33 @@ p3 <- ggplot()+
     ggtitle("Partial ACF plot")
 
 grid.arrange(p1,p2,p3,nrow=3)
+
+
+#let's investigate decades
+ggplot(prec)+
+    stat_summary(
+        mapping=aes(x=calendar_date,y=PREC),
+        fun = mean,
+        geom="line"
+    )+
+    facet_wrap(~(year%/%10))
+
+# #Now we want to be looking at cumulative precipitation
+# #let's make a new tibble for the average daily precipitation
+# avgprec1 <- prec%>%
+#     filter(mem==1)%>%
+#     select(time,year,calendar_date)%>%
+#     unique()
+# 
+# #add precipitation averaged across all pixels for each time index to this tibble
+# avgprec1 <- avgprec1 %>%
+#     mutate(meanprec=map_dbl(time,function(x) mean(filter(prec,time==x)$PREC)))
+# 
+# gbg <- map_dbl(avgprec1$time,function(x) mean(filter(prec,time==x&mem==1)$PREC))
+
+
+
+
+
+
+
