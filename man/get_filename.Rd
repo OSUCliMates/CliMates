@@ -4,17 +4,24 @@
 \alias{get_filename}
 \title{Get .nc filepath for data}
 \usage{
-get_filename(data = "ERA", specific = "", type = "PREC", year = "")
+get_filename(
+  data = "ERA",
+  specific = "historical",
+  type = "PREC",
+  year_range = c(2000, 2013)
+)
 }
 \arguments{
 \item{data}{String containing data name, can be "ERA","Liu",or"CESM"}
 
-\item{specific}{which dataset to pull - just for CESM and Liu}
+\item{specific}{which dataset to pull - just for CESM and Liu options include historical and rcp for CESM and historical and endOfCentury for Liu}
 
-\item{type}{Can be MAXT,MINT,PREC}
+\item{type}{Can be MAXT,MINT,PREC, defaults to PREC}
+
+\item{year_range}{for Liu-etal only: year range in 2000-2013, defaults whole range.}
 }
 \value{
-Filepath
+Filepath (or string of filenames) to access .nc file of choosing
 }
 \description{
 Get .nc filepath for data
