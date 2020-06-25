@@ -7,11 +7,14 @@
 #' @return A data frame of the state data points within the time or NA if state doesnt exist in data
 
 
-get_state_data <- function(filename, state="oregon", timemin=0, timemax=14244){
+get_state_data <- function(filename, state="Oregon", timemin=0, timemax=14244){
     print(state)
     state1 <- NA
     try(state1 <- maps::map("county", region = state, plot = F, fill = T),
         silent = T)
+    
+    #state_us <- usmaps::us_map(regions = "counties", include = state)
+    
     if(!is.na(state1[1])){
         maxlon <- max(state1$x, na.rm = T)
         minlon <- min(state1$x, na.rm = T)
