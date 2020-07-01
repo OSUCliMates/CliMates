@@ -1,0 +1,41 @@
+\begin{thebibliography}{1}
+
+\bibitem{few_2009}
+Few S.
+\newblock Now you see it: Simple Visualization Techniques for Quantitative
+  Analysis.
+\newblock Analytics Press; 2009.
+
+\bibitem{era}
+Dee DP, Uppala SM, Simmons AJ, Berrisford P, Poli P, Kobayashi S, et~al.
+\newblock The ERA-Interim reanalysis: configuration and performance of the data
+  assimilation system.
+\newblock Quarterly Journal of the Royal Meteorological Society.
+  2011;137(656):553--597.
+\newblock doi:{10.1002/qj.828}.
+
+\bibitem{CESM}
+Kay JE, Deser C, Phillips A, Mai A, Hannay C, Strand G, et~al.
+\newblock The Community Earth System Model (CESM) large ensemble project: A
+  community resource for studying climate change in the presence of internal
+  climate variability.
+\newblock Bulletin of the American Meteorological Society.
+  2015;96(8):1333--1349.
+
+\bibitem{shiny}
+Chang W, Cheng J, Allaire J, Xie Y, McPherson J. shiny: Web Application
+  Framework for R; 2019.
+\newblock Available from: \url{https://CRAN.R-project.org/package=shiny}.
+
+\bibitem{tidync}
+Sumner M. tidync: A Tidy Approach to 'NetCDF' Data Exploration and Extraction;
+  2019.
+\newblock Available from: \url{https://CRAN.R-project.org/package=tidync}.
+
+\bibitem{tidyverse}
+Wickham H, Averick M, Bryan J, Chang W, McGowan LD, François R, et~al.
+\newblock Welcome to the {tidyverse}.
+\newblock Journal of Open Source Software. 2019;4(43):1686.
+\newblock doi:{10.21105/joss.01686}.
+
+\end{thebibliography}
