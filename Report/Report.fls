@@ -186,6 +186,12 @@ INPUT ./graphics/overview.png
 INPUT graphics/brushedpoints.png
 INPUT ./graphics/brushedpoints.png
 INPUT ./graphics/brushedpoints.png
+INPUT graphics/ensemble_members_bottom_figure.png
+INPUT ./graphics/ensemble_members_bottom_figure.png
+INPUT ./graphics/ensemble_members_bottom_figure.png
+INPUT graphics/ensemble_members_top_figure.png
+INPUT ./graphics/ensemble_members_top_figure.png
+INPUT ./graphics/ensemble_members_top_figure.png
 INPUT graphics/cumulative.png
 INPUT ./graphics/cumulative.png
 INPUT ./graphics/cumulative.png
