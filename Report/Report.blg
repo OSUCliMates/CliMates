@@ -12,45 +12,45 @@ Warning--empty author in usgs
 Warning--there's a month but no year in usgs
 Warning--empty author in hawkins
 Warning--there's a month but no year in hawkins
-You've used 9 entries,
+You've used 12 entries,
             3058 wiz_defined-function locations,
-            681 strings with 6936 characters,
-and the built_in function-call counts, 20880 in all, are:
-= -- 2507
-> -- 122
+            703 strings with 7537 characters,
+and the built_in function-call counts, 25731 in all, are:
+= -- 3156
+> -- 146
 < -- 1
-+ -- 112
-- -- 30
-* -- 1952
-:= -- 2297
-add.period$ -- 28
-call.type$ -- 9
++ -- 129
+- -- 36
+* -- 2358
+:= -- 2813
+add.period$ -- 36
+call.type$ -- 12
 change.case$ -- 2
 chr.to.int$ -- 0
-cite$ -- 14
-duplicate$ -- 1067
-empty$ -- 2110
-format.name$ -- 35
-if$ -- 4794
+cite$ -- 17
+duplicate$ -- 1511
+empty$ -- 2571
+format.name$ -- 43
+if$ -- 5937
 int.to.chr$ -- 0
-int.to.str$ -- 9
-missing$ -- 73
-newline$ -- 45
-num.names$ -- 7
-pop$ -- 132
+int.to.str$ -- 12
+missing$ -- 93
+newline$ -- 58
+num.names$ -- 10
+pop$ -- 177
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 160
+skip$ -- 192
 stack$ -- 0
-substring$ -- 5023
-swap$ -- 179
+substring$ -- 5972
+swap$ -- 225
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 5
-while$ -- 62
-width$ -- 10
-write$ -- 93
+while$ -- 81
+width$ -- 14
+write$ -- 122
 (There were 5 warnings)
