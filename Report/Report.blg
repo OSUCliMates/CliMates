@@ -1,6 +1,6 @@
 This is BibTeX, Version 0.99d (TeX Live 2018)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
-The top-level auxiliary file: plos_latex_template.aux
+The top-level auxiliary file: Report.aux
 The style file: plos2015.bst
 Database file #1: mybibfile.bib
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
@@ -14,7 +14,7 @@ Warning--empty author in hawkins
 Warning--there's a month but no year in hawkins
 You've used 9 entries,
             3058 wiz_defined-function locations,
-            681 strings with 6962 characters,
+            681 strings with 6936 characters,
 and the built_in function-call counts, 20880 in all, are:
 = -- 2507
 > -- 122
