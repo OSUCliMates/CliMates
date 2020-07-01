@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex plos_latex_template"] 1593586954 "plos_latex_template.aux" "plos_latex_template.bbl" "plos_latex_template" 1593586956
+["bibtex Report"] 1593622505 "Report.aux" "Report.bbl" "Report" 1593622507
   "./plos2015.bst" 1520466674 38071 b81f186f4b41cf496154afb7aeec3301 ""
+  "Report.aux" 1593622507 1165 a4fa04f28e15f6a24571c96d6adef8b9 ""
   "mybibfile.bib" 1593586949 4535 35bde97f36d2878d0d1732a6fb88f21e ""
-  "plos_latex_template.aux" 1593586956 1165 a4fa04f28e15f6a24571c96d6adef8b9 ""
   (generated)
-  "plos_latex_template.blg"
-  "plos_latex_template.bbl"
-["pdflatex"] 1593586954 "plos_latex_template.tex" "plos_latex_template.pdf" "plos_latex_template" 1593586956
+  "Report.blg"
+  "Report.bbl"
+["pdflatex"] 1593622506 "Report.tex" "Report.pdf" "Report" 1593622507
   "/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1480098666 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/jknappen/ec/tcrm0700.tfm" 1480098696 1536 73da8e8f1d2a4c957d51ca133585586b ""
@@ -109,6 +109,10 @@
   "/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1523934492 2717033 f61a5287d9c22a39a74f1979fe3f905c ""
   "/usr/local/texlive/2018/texmf-var/web2c/pdftex/pdflatex.fmt" 1523934516 4220280 10cab8fbd7c5a7c52aba9917e190d018 ""
   "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
+  "Report.aux" 1593622507 1165 a4fa04f28e15f6a24571c96d6adef8b9 ""
+  "Report.bbl" 1593622506 1805 ced33ff800bcc6d3289852c354c25b97 "bibtex Report"
+  "Report.out" 1593622506 0 d41d8cd98f00b204e9800998ecf8427e ""
+  "Report.tex" 1593622490 28800 5071fe690d1dfaebfc696c9d9bbfc433 ""
   "graphics/brushedpoints.png" 1593584699 39699 f5da1113f31e98fe2ac3591eacfd1ced ""
   "graphics/cumulative.png" 1593585292 55798 d70861a6f7f977e10183388dec647ae1 ""
   "graphics/cumulative_year.png" 1593585874 41068 7b50ef24be23d551564739919679facc ""
@@ -118,12 +122,8 @@
   "graphics/seasonal_deviation.png" 1593585924 108269 32104b76d7767e501b48f1b41af95351 ""
   "graphics/total.png" 1593585842 51833 6b0c3fcff55b1ae6e8da4f43591c6d34 ""
   "graphics/variance.png" 1593585901 63223 b1d45e17abf4dc4be3a9ac0a07646075 ""
-  "plos_latex_template.aux" 1593586956 1165 a4fa04f28e15f6a24571c96d6adef8b9 ""
-  "plos_latex_template.bbl" 1593586954 1805 ced33ff800bcc6d3289852c354c25b97 "bibtex plos_latex_template"
-  "plos_latex_template.out" 1593586955 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "plos_latex_template.tex" 1593586952 28800 5071fe690d1dfaebfc696c9d9bbfc433 ""
   (generated)
-  "plos_latex_template.log"
-  "plos_latex_template.out"
-  "plos_latex_template.aux"
-  "plos_latex_template.pdf"
+  "Report.aux"
+  "Report.pdf"
+  "Report.log"
+  "Report.out"
