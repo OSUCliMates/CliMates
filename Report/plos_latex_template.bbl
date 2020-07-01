@@ -22,6 +22,10 @@ Kay JE, Deser C, Phillips A, Mai A, Hannay C, Strand G, et~al.
 \newblock Bulletin of the American Meteorological Society.
   2015;96(8):1333--1349.
 
+\bibitem{kotu_deshpande_2019}
+Kotu V, Deshpande B.
+\newblock In: 2. Morgan Kaufmann Publishers; 2019. p. 19–37.
+
 \bibitem{shiny}
 Chang W, Cheng J, Allaire J, Xie Y, McPherson J. shiny: Web Application
   Framework for R; 2019.
@@ -37,5 +41,13 @@ Wickham H, Averick M, Bryan J, Chang W, McGowan LD, François R, et~al.
 \newblock Welcome to the {tidyverse}.
 \newblock Journal of Open Source Software. 2019;4(43):1686.
 \newblock doi:{10.21105/joss.01686}.
+
+\bibitem{usgs}
+Explanations for the National Water Conditions;.
+\newblock Available from: \url{http://water.usgs.gov/nwc/explain_data.html}.
+
+\bibitem{hawkins}
+Show Your Stripes;.
+\newblock Available from: \url{https://showyourstripes.info/}.
 
 \end{thebibliography}
