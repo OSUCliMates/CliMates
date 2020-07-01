@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{few_2009}
 Few S.
@@ -31,6 +31,10 @@ Chang W, Cheng J, Allaire J, Xie Y, McPherson J. shiny: Web Application
   Framework for R; 2019.
 \newblock Available from: \url{https://CRAN.R-project.org/package=shiny}.
 
+\bibitem{R}
+{R Core Team}. R: A Language and Environment for Statistical Computing; 2019.
+\newblock Available from: \url{https://www.R-project.org/}.
+
 \bibitem{tidync}
 Sumner M. tidync: A Tidy Approach to 'NetCDF' Data Exploration and Extraction;
   2019.
@@ -41,6 +45,18 @@ Wickham H, Averick M, Bryan J, Chang W, McGowan LD, François R, et~al.
 \newblock Welcome to the {tidyverse}.
 \newblock Journal of Open Source Software. 2019;4(43):1686.
 \newblock doi:{10.21105/joss.01686}.
+
+\bibitem{maps}
+code~by Richard A~Becker OS, version by Ray Brownrigg Enhancements~by Thomas
+  P~Minka ARWR, Deckmyn A. maps: Draw Geographical Maps; 2018.
+\newblock Available from: \url{https://CRAN.R-project.org/package=maps}.
+
+\bibitem{cleveland1988locally}
+Cleveland WS, Devlin SJ.
+\newblock Locally weighted regression: an approach to regression analysis by
+  local fitting.
+\newblock Journal of the American statistical association.
+  1988;83(403):596--610.
 
 \bibitem{usgs}
 Explanations for the National Water Conditions;.
